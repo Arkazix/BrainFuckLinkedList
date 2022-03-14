@@ -62,17 +62,17 @@ class LinkedList:
             self.push()
             self.current_node_inc()
         else:
-            self.current_node.value -= 1
+            self.current_node.value += 1
 
     def current_node_dec(self):
         """
-        Decrement current node value.
+        Decrement current node value if current value is > 0.
         If current node is None, push a Node and decrement it.
         """
         if self.current_node == None:
             self.push()
             self.current_node_dec()
-        else:
+        elif self.current_node.value > 0:
             self.current_node.value -= 1
 
     def current_node_get_value(self) -> int:
@@ -85,6 +85,25 @@ class LinkedList:
         return self.current_node.value
 
     def current_node_set_value(self, value: int):
+        """
+        Set the current node value to value parameter.
+        If current node is None do nothing.
+        """
         if self.current_node == None:
             return
         self.current_node.value = value
+
+    def __str__(self) -> str:
+        """
+        Return a string representation of the current linked list.
+        """
+        s = ""
+        curr = self.head
+        while curr != None:
+            s += "| "
+            s += str(curr.value)
+            s += " |"
+            curr = curr.next
+            if curr != None:
+                s += " -> "
+        return s

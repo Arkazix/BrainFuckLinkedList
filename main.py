@@ -19,9 +19,11 @@ def get_file_text(filepath: str) -> str:
 
 
 if __name__ == '__main__':
-    filepath = "test.bf"
+    filepath = "test/ChristmasTree.bf"
     valid_file(filepath)
 
     file_text = get_file_text(filepath)
     interpreter = Interpreter(file_text)
-    interpreter.execute()
+    linked_list = interpreter.execute()
+    print(linked_list)
+    print(interpreter.get_string())
