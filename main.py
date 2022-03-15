@@ -1,4 +1,4 @@
-from interpreter import Interpreter
+from src import Interpreter
 from sys import exit
 
 
@@ -19,7 +19,7 @@ def get_file_text(filepath: str) -> str:
 
 
 if __name__ == '__main__':
-    filepath = "test/ChristmasTree.bf"
+    filepath = "test/helloWorld.bf"
     valid_file(filepath)
 
     file_text = get_file_text(filepath)
